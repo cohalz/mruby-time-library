@@ -4,7 +4,7 @@ on:
   pull_request:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
@@ -21,6 +21,12 @@ jobs:
         uses: actions/setup-ruby@v1
       - name: Install GNU Bison
         run: sudo apt install bison
+      - name: get branch name
+        if: github.event_name != 'pull_request'
+        run: echo "BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/})" >> $GITHUB_ENV
+      - name: get pull request branch name
+        if: github.event_name == 'pull_request'
+        run: echo "BRANCH_NAME=$(echo $GITHUB_HEAD_REF)" >> $GITHUB_ENV
       - name: Rake test
         env:
           TEMPLATE: |
@@ -30,7 +36,7 @@ jobs:
               conf.enable_bintest
               conf.enable_test
               conf.gembox 'default'
-              conf.gem :github => '${{ github.repository }}', :branch => '${{ github.head_ref }}'
+              conf.gem :github => '${{ github.repository }}', :branch => '${BRANCH_NAME}'
             end
         run: |
           printf "${TEMPLATE}" > build_config.rb
