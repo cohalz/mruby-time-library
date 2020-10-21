@@ -13,24 +13,19 @@ p Time.utc(2020, 10, 17).rfc2822
 #=> "Sat, 17 Oct 2020 00:00:00 -0000"
 ```
 
-## Notice of Implemented & Not Implemented
-### Implemented
-#### Public Instance Methods
-- Time#httpdate
-- Time#iso8601
-- Time#rfc2822
-- Time#rfc822
-- Time#iso8601
+## Implemented methods
 
-### Not Implemented
-
-#### Public Class Methods
-
-- Time.httpdate
-- Time.iso8601
-- Time.parse
-- Time.rfc2822
-- Time.rfc822
-- Time.strptime
-- Time.xmlschema
-- Time.zone_offset
+| method | implemented |
+| - | - |
+| Time#httpdate | o |
+| Time#iso8601 | o |
+| Time#rfc2822 | o |
+| Time#rfc822 | o |
+| Time#xmlschema | o |
+| Time.httpdate | - |
+| Time.iso8601 | - |
+| Time.rfc2822 | - |
+| Time.rfc822 | - |
+| Time.strptime | - |
+| Time.xmlschema | - |
+| Time.zone_offset | - |
