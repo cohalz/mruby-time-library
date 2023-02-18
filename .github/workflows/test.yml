@@ -10,10 +10,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           path: ${{ github.repository }}
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           repository: mruby/mruby
           path: mruby
@@ -23,10 +23,10 @@ jobs:
         run: sudo apt install bison
       - name: get branch name
         if: github.event_name != 'pull_request'
-        run: echo "BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/})" >> $GITHUB_ENV
+        run: echo "BRANCH_NAME=${{ github.ref_name }}" >> $GITHUB_ENV
       - name: get pull request branch name
         if: github.event_name == 'pull_request'
-        run: echo "BRANCH_NAME=$(echo $GITHUB_HEAD_REF)" >> $GITHUB_ENV
+        run: echo "BRANCH_NAME=${{ github.head_ref }}" >> $GITHUB_ENV
       - name: Rake test
         env:
           TEMPLATE: |

@@ -1,6 +1,6 @@
 # mruby-time-library
 
-[![Build and Test](https://github.com/cohalz/mruby-time-library/workflows/Build%20and%20Test/badge.svg)](https://github.com/cohalz/mruby-time-library/actions?query=workflow%3A%22Build+and+Test%22)
+[![Build and Test](https://github.com/cohalz/mruby-time-library/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/cohalz/mruby-time-library/actions/workflows/test.yml?query=branch%3Amaster)
 
 [time](https://ruby-doc.org/stdlib-2.7.2/libdoc/time/rdoc/index.html) Library for mruby.
 
