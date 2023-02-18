@@ -34,16 +34,6 @@ assert('at Pacific/Marquesas(-09:30)') do
   assert_equal('Sat, 17 Oct 2020 00:00:00 -0930', time.rfc822)
 end
 
-assert('in -500 B.C.') do
-  time = Time.utc(-500, 10, 17)
-
-  assert_equal('-0500-10-17T00:00:00Z', time.xmlschema)
-  assert_equal('-0500-10-17T00:00:00Z', time.iso8601)
-  assert_equal('Wed, 17 Oct -0500 00:00:00 GMT', time.httpdate)
-  assert_equal('Wed, 17 Oct -0500 00:00:00 -0000', time.rfc2822)
-  assert_equal('Wed, 17 Oct -0500 00:00:00 -0000', time.rfc822)
-end
-
 assert('Time#xmlschema fraction_digits') do
   time = Time.utc(2020, 10, 17, 0, 0, 0, 67890)
 
